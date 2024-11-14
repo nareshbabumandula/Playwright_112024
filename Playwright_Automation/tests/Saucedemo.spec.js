@@ -5,6 +5,7 @@ test('Access Website', async ({ page }) => {
     console.log('Website accessed');
 });
 
+
 test('Login', async ({ page }) => {
     console.log('Logged into the application..!');
 });
