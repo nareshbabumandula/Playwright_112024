@@ -14,4 +14,5 @@ test('Store Search', async ({page}) => {
     await page.locator('#inputStoreValue').fill("Tampa");
     await page.waitForTimeout(2000);    
     await page.locator('//button[contains(text(),"Find a Store")]').click();
+    //await page.getByRole('button', {text: 'Find a Store' }).click();
 });
