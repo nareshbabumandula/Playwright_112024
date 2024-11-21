@@ -1,0 +1,30 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://mycontactform.com/');
+  await page.getByRole('link', { name: 'Sample Forms' }).click();
+  await page.locator('input[name="email_to\\[\\]"]').nth(1).check();
+  await page.getByLabel('Subject: *').fill('Test Subject');
+  await page.getByLabel('E-mail Address: *').fill('testuser@gmail.com');
+  await page.getByLabel('Text Box Field:').fill('Test Field');
+  await page.getByLabel('Text Box - Multi Line:').fill('Test\nMulti\nline\ntext');
+  await page.getByLabel('Drop Down Box:').selectOption('Second Option');
+  await page.getByRole('radio').nth(2).check();
+  await page.getByLabel('Check Box - Single Answer:').check();
+  await page.locator('input[name="checkbox6\\[\\]"]').nth(3).check();
+  await page.getByLabel('Date Selector:').click();
+  await page.getByRole('link', { name: '22' }).click();
+  await page.getByLabel('Pre-Defined Field - U.S.').selectOption('IN');
+  await page.getByLabel('Pre-Defined Field - Countries:').selectOption('Austria');
+  await page.getByLabel('Pre-Defined Field - Canadian').selectOption('Ontario');
+  await page.locator('select[name="q11_title"]').selectOption('Mr.');
+  await page.getByRole('cell', { name: 'Pre-Defined Field - Name: Mr.' }).click();
+  await page.getByPlaceholder('First Name').fill('Test');
+  await page.getByPlaceholder('Last Name').fill('User');
+  await page.locator('select[name="q12_month"]').selectOption('10');
+  await page.locator('select[name="q12_day"]').selectOption('16');
+  await page.locator('select[name="q12_year"]').selectOption('1998');
+  await page.getByRole('button', { name: 'Submit' }).click();
+  await expect(page.getByRole('listitem')).toContainText('Your verification code was entered incorrectly. Please try again.');
+  await page.getByRole('link', { name: 'Back to Form' }).click();
+});
