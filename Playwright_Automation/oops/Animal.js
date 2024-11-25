@@ -17,6 +17,10 @@ class Dog extends Animal {
     breed = "German Shepard";
     
     // Behavior
+    speak(){
+        console.log(`${this.name} barks.`);
+    }
+
     walk(){
         console.log(`${this.name} can walk.`);
     }
@@ -28,6 +32,7 @@ class Dog extends Animal {
 }
 
 const dog = new Dog("Jimmy");
+dog.speak(); // Method overriding
 dog.walk();
 dog.run();
 console.log(dog.age);
