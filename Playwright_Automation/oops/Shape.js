@@ -26,10 +26,11 @@ class Rectangle extends Shape{
         this.width=width;
         this.height=height;
     }
-
+ 
     area(){
         return this.width * this.height;
     }
+
 
 }
 
