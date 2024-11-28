@@ -35,8 +35,20 @@ myCar.drive();
 
 class Mercedes extends Vehicle{
   
+    rpm(speed){
+        console.log("rpm is " + speed + " kmph..!")
+    }
+
     rpm(){
       console.log("rpm is 220 kmph..!")
+    }
+
+    rpmCondition(speed){
+        if (speed!==undefined) {
+            console.log("rpm is " + speed + " kmph..!")
+        } else {
+            console.log("rpm is 220 kmph..!")
+        }
     }
 
 }
@@ -44,3 +56,6 @@ class Mercedes extends Vehicle{
 const merc = new Mercedes();
 merc.start();
 merc.rpm();
+merc.rpm(250);
+merc.rpmCondition();
+merc.rpmCondition(300);
