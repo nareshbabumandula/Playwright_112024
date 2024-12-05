@@ -6,7 +6,7 @@
  * 3. Supports predefined utility methods
  */
 function arraysDemo(params) {
-    const fruits = ["Orange", "pineapple", "apple", "papaya", "guava", "dragon fruit", "litchi", "malberry"];
+    const fruits = ["Orange", "pineapple", "apple", "guava", "papaya", "guava", "dragon fruit", "litchi", "malberry"];
     // access 1st element of an array based on array index
     console.log(fruits[0]);
     console.log(fruits[1]);
