@@ -24,4 +24,33 @@ test('Browser Actions', async ({page}) => {
     // 6. Get the page current URL
     const pageurl = await page.url();
     console.log("Page current URL is : " + pageurl);
+ 
 });
+
+
+test('Login', async ({page}) => {
+    await page.goto("https://www.mycontactform.com");
+    // Expect a title "to contain" a substring.
+    await expect(page).toHaveTitle(/myContactForm.com/);
+    await page.getByLabel("User Name:").fill("Shavali");
+    await page.waitForTimeout(2000);
+    await page.getByLabel("Password:").fill("Secure*1234");
+    await page.waitForTimeout(2000);
+    await page.locator("xpath=//input[@name='btnSubmit']").click();
+    await page.waitForTimeout(2000);
+});
+
+
+test('Submit Sample Forms', async ({page}) => {
+    await page.goto("https://www.mycontactform.com");
+    await page.getByRole('link', { name: 'Sample Forms' }).click();
+    await page.waitForTimeout(2000);
+    page.locator('input[name="email_to[]"]').nth(0).click();
+    await page.waitForTimeout(2000);
+    page.locator('input[name="email_to[]"]').nth(1).click();
+    await page.waitForTimeout(2000);
+    page.locator('input[name="email_to[]"]').nth(2).click();
+    await page.waitForTimeout(2000);
+});
+
+
