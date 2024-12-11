@@ -4,6 +4,13 @@ test.describe('Sauce Demo Automation', async (params) => {
 
     test.beforeEach('Access Site', async ({page}) => {
         await page.goto("https://www.saucedemo.com/");
+        // Checkpoint 1
+        await expect(page).toHaveURL("https://www.saucedemo.com");
+        // Checkpoint 2
+        await expect(page).toHaveTitle("Swag Labs");
+        const heading = page.locator("div.login_logo");
+        // Checkpoint 3
+        await expect(heading).toHaveText("Swag Labs");
         console.log("Accessed Sauce Demo portal");
     });
 
@@ -16,11 +23,6 @@ test.describe('Sauce Demo Automation', async (params) => {
         await page.waitForTimeout(1000);
         console.log("Logged into SauceDemo");
     });
-
-    test('Product Search', async ({page}) => {
-        console.log("Successfully searched a product..!");
-    });
-
     
     test.afterEach('Logout', async ({page}) => {
         page.locator('#react-burger-menu-btn').click();
