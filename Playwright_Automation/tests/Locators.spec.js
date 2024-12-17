@@ -36,7 +36,7 @@ test('Playwright Locators', async ({page}) => {
 });
 
 
-test.only('Playwright built-in locators', async ({page}) => {
+test('Playwright built-in locators', async ({page}) => {
    await page.goto('https://www.mycontactform.com/samples.php');
   
    // 1. page.getByLabel() --> To locate an object by its associated text
@@ -64,6 +64,18 @@ test.only('Playwright built-in locators', async ({page}) => {
 
    // 4. page.getByPlaceHolder() --> To locate a textbox by placeholder
    await page.getByPlaceholder('First Name').fill('John');
+   await page.waitForTimeout(3000);
+
+   // 5. page.getByAltText() to locate an element, usually image, by its text alternative.
+   await page.goto('https://www.flipkart.com');
+   await page.getByAltText('Login').nth(0).click();
+   await page.waitForTimeout(3000);
+});
+
+test.only('Test ID', async ({page}) => {
+   // 7. page.getByTestId() to locate an element based on test id
+   await page.goto('https://www.amazon.in');
+   await page.getByTestId('data-testid').nth(0).click();
    await page.waitForTimeout(3000);
 });
 
