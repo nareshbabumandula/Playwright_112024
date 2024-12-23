@@ -41,10 +41,8 @@ test('Playwright Actions', async ({page}) => {
     //await page.locator('input[name="submit"][value="Submit"]').nth(2).waitFor({state:'visible'});
     //await page.locator('input[name="submit"][value="Submit"]').nth(2).focus();
     await page.getByRole('button', { name: 'Submit' }).click();
-    
-    await page.keyboard('Enter');
+    //await page.keyboard('Enter');
 
     await page.waitForTimeout(3000);
-
-   
+  
 });
