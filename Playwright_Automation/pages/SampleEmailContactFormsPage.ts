@@ -18,6 +18,8 @@ export class SampleEmailContactFormsPage{
     // Methods
     async navigateToSampleEmailContactFormsPage(url: string): Promise<void>{
         await this.page.goto(url);
+        await this.page.pause();
+        await this.page.getByRole('link', {name:'Sample Forms'}).click();
     }
 
     async selectSendTo(department:string): Promise<void>{
